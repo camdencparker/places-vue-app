@@ -47,22 +47,13 @@ export default {
           console.log("places update error", error.response.data.errors);
         });
     },
-    destroyPhoto: function (place) {
+    destoryPlace: function (place) {
       axios.delete("/places/" + place.id).then((response) => {
         console.log("Places destroy", response);
         var index = this.places.indexOf(place);
         this.places.splice(index, 1);
       });
     },
-    // destroyPlace: function (place) {
-    //   if (confirm("Are you sure you to delete this?")) {
-    //     axios.delete(`/places/${place.id}`).then((response) => {
-    //       console.log("Success", response);
-    //       var index = this.places.indexOf(place);
-    //       this.places.splice(index, 1);
-    //     });
-    //   }
-    // },
   },
 };
 </script>
@@ -106,20 +97,4 @@ export default {
     <br />
     <button v-on:click="createPlace()">Create</button>
   </div>
-  <!-- <div>
-    <h3>Update Place</h3>
-    <p>
-      Id:
-      <input type="text" v-model="changePlace.id" />
-    </p>
-    <p>
-      Name:
-      <input type="text" v-model="changePlace.name" />
-    </p>
-    <p>
-      Address:
-      <input type="text" v-model="changePlace.address" />
-    </p>
-    <button v-on:click="updateMovie()">Commit</button>
-  </div> -->
 </template>
